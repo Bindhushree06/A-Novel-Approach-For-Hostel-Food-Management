@@ -1,0 +1,16 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build with Ant",
+        "type": "shell",
+        "command": "ant",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": [],
+        "detail": "Build project using Apache Ant"
+      }
+    ]
+  }

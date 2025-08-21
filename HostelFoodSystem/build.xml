@@ -1,0 +1,32 @@
+<project name="HostelFoodSystem" default="run" basedir=".">
+    <!-- Define where compiled classes will go -->
+    <property name="build.dir" value="build/classes"/>
+    <property name="src.dir" value="src"/>
+    <property name="lib.dir" value="lib"/>
+    
+    <!-- Define the classpath for the project -->
+    <path id="project.class.path">
+        <pathelement location="${build.dir}"/>
+        <fileset dir="${lib.dir}">
+            <include name="mysql-connector-j-9.1.0.jar"/>
+        </fileset>
+    </path>
+    
+    <!-- Target to clean the build directory -->
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+    
+    <!-- Target to compile the source files -->
+    <target name="compile" depends="clean">
+        <mkdir dir="${build.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="project.class.path">
+            <include name="**/*.java"/>
+        </javac>
+    </target>
+    
+    <!-- Target to run the application -->
+    <target name="run" depends="compile">
+        <java classname="com.hostel.system.LoginFrame" classpathref="project.class.path" fork="true"/>
+    </target>
+</project>
